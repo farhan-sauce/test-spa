@@ -1,5 +1,6 @@
 {
   "name": "test-spa",
+  "homepage": "https://farhan-sauce.github.io/test-spa",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
