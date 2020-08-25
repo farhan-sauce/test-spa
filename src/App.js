@@ -8,6 +8,7 @@ import {
 import Login from "./Components/Login";
 import About from "./Components/About";
 import styles from './App.module.css';
+import Contact from "./Components/Contact";
 
 export default function App() {
   return (
@@ -18,6 +19,9 @@ export default function App() {
         <Switch>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
           </Route>
           <Route path="/">
             <Login />
