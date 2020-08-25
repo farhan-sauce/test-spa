@@ -12,7 +12,7 @@ const Login = () => {
   if (isAutoRedirectRedirect) {
     setTimeout(() => {
       history.push("/about")
-    }, 2000)
+    }, delayTime)
   }
 
   const redirectToPage = () => {
