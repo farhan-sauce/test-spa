@@ -4,9 +4,16 @@ import { useHistory, Link } from "react-router-dom";
 const Login = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const delayTime = urlParams.get('delayTime') || 3000;
-  const isMultipleRedirect = !!urlParams.get('multipleRedirect');
+  const isMultipleRedirect = urlParams.get('multipleRedirect');
+  const isAutoRedirectRedirect = urlParams.get('autoRedirect');
 
   const history = useHistory();
+
+  if (isAutoRedirectRedirect) {
+    setTimeout(() => {
+      history.push("/about")
+    }, 2000)
+  }
 
   const redirectToPage = () => {
     history.push("/about")
