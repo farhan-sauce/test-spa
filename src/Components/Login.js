@@ -31,6 +31,7 @@ const Login = () => {
   }
 
   const handleSingleRequest = () => {
+    console.log("Hello World")
     const delay = Math.ceil(delayTime / 1000);
     fetch(`https://reqres.in/api/users?delay=${delay}`)
       .then(() => console.log('done'))
@@ -54,6 +55,25 @@ const Login = () => {
       })
   }
 
+  const handleMultipleURLRequest = () => {
+    const delay = Math.ceil(delayTime / 1000);
+    fetch(`https://reqres.in/api/users?delay=${delay}`)
+      .then(() => console.log('done'))
+      .catch((err) => console.error(err))
+      .finally(() => {
+        history.push("/about")
+        // setTimeout(() => {
+        //   history.push("/contact")
+        // }, 2000)
+        setTimeout(() => {
+          history.push("/multiple-2")
+        }, 2000)
+        // setTimeout(() => {
+        //   history.push("/multiple-2")
+        // }, 8000)
+      })
+  }
+
   return (
     <section id="login-section">
       <p>SPA Login test</p>
@@ -74,7 +94,12 @@ const Login = () => {
         <button id="multiple-request" onClick={handleMultipleRequest}>
           Multiple requests
         </button>
-      </div>      
+      </div>
+      <div>
+        <button id="multiple-url-link" onClick={handleMultipleURLRequest}>
+          Multiple URL Changes
+        </button>
+      </div>
     </section>
   );
 };
