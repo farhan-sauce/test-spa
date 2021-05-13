@@ -84,7 +84,7 @@ const Login = () => {
   }
 
   const handleNewWindow = () => {
-    window.open('/', 'newwindow', 'width=500,height=500')
+    window.open('#', 'newwindow', 'width=500,height=500')
   }
 
   return (
