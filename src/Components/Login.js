@@ -87,6 +87,11 @@ const Login = () => {
     window.open('#', 'newwindow', 'width=500,height=500')
   }
 
+  const handleCloseWindow = () => {
+    fetch(`https://reqres.in/api/users?delay=${3000}`)
+    window.close()
+  }
+
   return (
     <section id="login-section">
       <p>SPA Login test</p>
@@ -116,6 +121,11 @@ const Login = () => {
       <div>
         <button id="new-window" onClick={handleNewWindow}>
           New Window
+        </button>
+      </div>
+      <div>
+        <button id="close-window" onClick={handleCloseWindow}>
+          Close Window
         </button>
       </div>
     </section>
