@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory, Link } from "react-router-dom";
 
 const Login = () => {
@@ -55,6 +55,15 @@ const Login = () => {
       })
   }
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      fetch('https://reqres.in/api/users');
+    }, 5000)
+    return () => {
+      clearInterval(timer);
+    }
+  }, []);
+
   const handleMultipleURLRequest = () => {
     const delay = Math.ceil(delayTime / 1000);
     fetch(`https://reqres.in/api/users?delay=${delay}`)
@@ -72,6 +81,10 @@ const Login = () => {
         //   history.push("/multiple-2")
         // }, 8000)
       })
+  }
+
+  const handleNewWindow = () => {
+    window.open('/', 'newwindow', 'width=500,height=500')
   }
 
   return (
@@ -98,6 +111,11 @@ const Login = () => {
       <div>
         <button id="multiple-url-link" onClick={handleMultipleURLRequest}>
           Multiple URL Changes
+        </button>
+      </div>
+      <div>
+        <button id="new-window" onClick={handleNewWindow}>
+          New Window
         </button>
       </div>
     </section>
