@@ -56,14 +56,19 @@ const Login = () => {
   }
 
   const handleWrongRequests = () => {
+    console.warn('Deprecated API')
     const urls = [
       'https://reqres.in/api/users/23',
       'https://reqres.in/api/unknown/23'
     ];
     Promise.all(urls.map(u=>fetch(u)))
+      .then(() => {
+        console.error('Custom Error: Request failed')
+      })
   }
 
   useEffect(() => {
+    console.info('Track Events: login page')
     const timer = setInterval(() => {
       fetch('https://reqres.in/api/users');
     }, 5000)
