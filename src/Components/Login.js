@@ -55,6 +55,14 @@ const Login = () => {
       })
   }
 
+  const handleWrongRequests = () => {
+    const urls = [
+      'https://reqres.in/api/users/23',
+      'https://reqres.in/api/unknown/23'
+    ];
+    Promise.all(urls.map(u=>fetch(u)))
+  }
+
   useEffect(() => {
     const timer = setInterval(() => {
       fetch('https://reqres.in/api/users');
@@ -126,6 +134,11 @@ const Login = () => {
       <div>
         <button id="close-window" onClick={handleCloseWindow}>
           Close Window
+        </button>
+      </div>
+      <div>
+        <button id="failed-requests" onClick={handleWrongRequests}>
+          Failed Requests
         </button>
       </div>
     </section>
