@@ -69,6 +69,14 @@ const Login = () => {
 
   useEffect(() => {
     console.info('Track Events: login page')
+    console.info(
+      'Track Events: login page multiple args',
+      123456,
+      true,
+      ['foo'],
+      ['foo1', ['bar1'], 5],
+      { repo: 'test-spa', version: '1.0.0', info: { author: 'sl' }
+    })
     const timer = setInterval(() => {
       fetch('https://reqres.in/api/users');
     }, 5000)
