@@ -110,6 +110,10 @@ const Login = () => {
 
   const handleCloseWindow = () => {
     fetch(`https://reqres.in/api/users?delay=${3000}`)
+    var multiReq = document.getElementById('multiple-request')
+    multiReq.click();
+    var singleReq = document.getElementById('single-request')
+    singleReq.click();
     window.close()
   }
 
