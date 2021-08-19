@@ -51,7 +51,9 @@ const Login = () => {
       .then(() => console.log('done'))
       .catch((err) => console.error(err))
       .finally(() => {
-        redirectToPage()
+        setTimeout(() => {
+          redirectToPage()
+        }, urlParams.get('delayTime') || 0)
       })
   }
 
