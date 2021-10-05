@@ -51,9 +51,11 @@ const Login = () => {
       .then(() => console.log('done'))
       .catch((err) => console.error(err))
       .finally(() => {
+        const timeout = urlParams.get('delayTime') ? parseInt(urlParams.get('delayTime'), 10) : 0
         setTimeout(() => {
+          console.log('---timeout', timeout)
           redirectToPage()
-        }, urlParams.get('delayTime') || 0)
+        }, timeout)
       })
   }
 
@@ -119,6 +121,19 @@ const Login = () => {
     window.close()
   }
 
+  const handlePostRequest = () => {
+    fetch(`https://reqres.in/api/users`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: "test-spa check",
+        job: "sedev"
+      })
+    })
+      .then(() => console.log('done'))
+      .catch((err) => console.error(err))
+  }
+
   return (
     <section id="login-section">
       <p>SPA Login test</p>
@@ -158,6 +173,11 @@ const Login = () => {
       <div>
         <button id="failed-requests" onClick={handleWrongRequests}>
           Failed Requests
+        </button>
+      </div>
+      <div>
+        <button id="post-request" onClick={handlePostRequest}>
+          POST Request
         </button>
       </div>
     </section>
